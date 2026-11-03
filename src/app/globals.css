@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
+/* Light is the default theme */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #f8fafc;
+  --fg: #18181b;
+  --muted: #71717a;
+  --card: #ffffff;
+  --border: #e4e4e7;
+  --accent: #2563eb;
+  --nav: #18181b;
+  --nav-fg: #f4f4f5;
+  --nav-muted: #a1a1aa;
+  --nav-hover: #27272a;
 }
 
+[data-theme="dark"] {
+  --bg: #09090b;
+  --fg: #fafafa;
+  --muted: #a1a1aa;
+  --card: #18181b;
+  --border: #27272a;
+  --accent: #60a5fa;
+  --nav: #18181b;
+  --nav-fg: #f4f4f5;
+  --nav-muted: #a1a1aa;
+  --nav-hover: #27272a;
+}
+
+[data-theme="gray"] {
+  --bg: #e4e4e7;
+  --fg: #27272a;
+  --muted: #52525b;
+  --card: #f4f4f5;
+  --border: #c4c4cc;
+  --accent: #52525b;
+  --nav: #3f3f46;
+  --nav-fg: #fafafa;
+  --nav-muted: #d4d4d8;
+  --nav-hover: #52525b;
+}
+
+[data-theme="pink"] {
+  --bg: #fdf2f8;
+  --fg: #3b0a2a;
+  --muted: #9d4a78;
+  --card: #ffffff;
+  --border: #fbcfe8;
+  --accent: #db2777;
+  --nav: #be185d;
+  --nav-fg: #ffffff;
+  --nav-muted: #fce7f3;
+  --nav-hover: #9d174d;
+}
+
+/* Makes the variables usable as Tailwind classes: bg-bg, text-fg, border-border, ... */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-nav: var(--nav);
+  --color-nav-fg: var(--nav-fg);
+  --color-nav-muted: var(--nav-muted);
+  --color-nav-hover: var(--nav-hover);
 }

@@ -25,7 +25,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 px-4 pt-4">
       <nav
         aria-label="Hoofdnavigatie"
-        className="mx-auto max-w-6xl rounded-lg bg-zinc-900 text-zinc-100 shadow-lg"
+        className="mx-auto max-w-6xl rounded-lg bg-nav text-nav-fg shadow-lg"
       >
         <div className="flex items-center justify-between px-5 py-4">
           <Link href="/" className="font-semibold tracking-tight">
@@ -39,10 +39,10 @@ export default function Navbar() {
                 <Link
                   href={href}
                   aria-current={isActive(href) ? "page" : undefined}
-                  className={`border-b-2 pb-0.5 text-sm transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400 ${
+                  className={`border-b-2 pb-0.5 text-sm transition-colors hover:text-nav-fg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-nav-fg ${
                     isActive(href)
-                      ? "border-blue-400 text-white"
-                      : "border-transparent text-zinc-400"
+                      ? "border-nav-fg text-nav-fg"
+                      : "border-transparent text-nav-muted"
                   }`}
                 >
                   {label}
@@ -65,7 +65,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {open && (
-          <ul className="flex flex-col gap-1 border-t border-zinc-800 px-3 py-3 md:hidden">
+          <ul className="flex flex-col gap-1 border-t border-nav-hover px-3 py-3 md:hidden">
             {links.map(({ href, label }) => (
               <li key={href}>
                 <Link
@@ -74,8 +74,8 @@ export default function Navbar() {
                   aria-current={isActive(href) ? "page" : undefined}
                   className={`block rounded px-3 py-2 text-sm ${
                     isActive(href)
-                      ? "bg-zinc-800 text-white"
-                      : "text-zinc-400 hover:text-white"
+                      ? "bg-nav-hover text-nav-fg"
+                      : "text-nav-muted hover:text-nav-fg"
                   }`}
                 >
                   {label}
