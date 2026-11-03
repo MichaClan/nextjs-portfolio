@@ -5,13 +5,19 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-const links = [
+type NavLink = {
+  href: string;
+  label: string;
+  soon?: boolean; // Set to true to show a "Soon" badge next to the link
+};
+
+const links: NavLink[] = [
   { href: "/", label: "Home" },
-  { href: "/carriere", label: "Carrière" },
+  { href: "/carriere", label: "Carrière", soon: true },
   { href: "/portfolio", label: "Portfolio" },
-  { href: "/academics", label: "Academics" },
+  { href: "/academics", label: "Academics", soon: true },
   { href: "/skills", label: "Skills" },
-  { href: "/contact", label: "Contact" },
+  { href: "/contact", label: "Contact", soon: true },
 ];
 
 export default function Navbar() {
@@ -28,14 +34,20 @@ export default function Navbar() {
         className="mx-auto max-w-6xl rounded-lg bg-nav text-nav-fg shadow-lg"
       >
         <div className="flex items-center justify-between px-5 py-4">
-          <Link href="/" className="font-semibold tracking-tight">
-            Micha
-          </Link>
+          {/* Logo + DEMO Badge */}
+          <div className="flex items-center gap-2.5">
+            <Link href="/" className="font-semibold tracking-tight">
+              Micha
+            </Link>
+            <span className="rounded-full bg-accent/15 px-2 py-0.5 text-[10px] font-mono font-medium text-accent border border-accent/30 tracking-wide uppercase">
+              DEMO
+            </span>
+          </div>
 
-          {/* Desktop */}
-          <ul className="hidden gap-7 md:flex">
-            {links.map(({ href, label }) => (
-              <li key={href}>
+          {/* Desktop Links */}
+          <ul className="hidden gap-7 md:flex items-center">
+            {links.map(({ href, label, soon }) => (
+              <li key={href} className="flex items-center gap-1.5">
                 <Link
                   href={href}
                   aria-current={isActive(href) ? "page" : undefined}
@@ -47,11 +59,16 @@ export default function Navbar() {
                 >
                   {label}
                 </Link>
+                {soon && (
+                  <span className="rounded bg-nav-hover px-1.5 py-0.5 text-[10px] font-mono text-nav-muted">
+                    soon
+                  </span>
+                )}
               </li>
             ))}
           </ul>
 
-          {/* Mobile toggle */}
+          {/* Mobile Toggle */}
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
@@ -63,22 +80,27 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile menu */}
+        {/* Mobile Menu */}
         {open && (
           <ul className="flex flex-col gap-1 border-t border-nav-hover px-3 py-3 md:hidden">
-            {links.map(({ href, label }) => (
+            {links.map(({ href, label, soon }) => (
               <li key={href}>
                 <Link
                   href={href}
                   onClick={() => setOpen(false)}
                   aria-current={isActive(href) ? "page" : undefined}
-                  className={`block rounded px-3 py-2 text-sm ${
+                  className={`flex items-center justify-between rounded px-3 py-2 text-sm ${
                     isActive(href)
                       ? "bg-nav-hover text-nav-fg"
                       : "text-nav-muted hover:text-nav-fg"
                   }`}
                 >
-                  {label}
+                  <span>{label}</span>
+                  {soon && (
+                    <span className="rounded bg-nav px-1.5 py-0.5 text-[10px] font-mono text-nav-muted border border-nav-hover">
+                      soon
+                    </span>
+                  )}
                 </Link>
               </li>
             ))}
