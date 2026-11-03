@@ -42,6 +42,21 @@ export const projects: Project[] = [
     repoUrl: "https://github.com/MichaClan/Sorcerer-Ascendant",
   },
   {
+    title: "Reading;Gate",
+    description:
+      "Client project built for the Werkplek Leren course. Features full CRUD functionality, role-based access control, popular books analytics, and Google Books API integration. Successfully delivered and presented to a satisfied client.",
+    image: "/projects/reading-gate.png",
+    imageAlt: "Reading Gate, a web application for book management",
+    category: "year-2",
+    badge: "Client Project",
+    details: [
+      { label: "Tech stack", value: "Next.js, Prisma ORM, Tailwind CSS" },
+      { label: "Integrations", value: "Google Books API" },
+      { label: "Features", value: "Role CRUD, Analytics, Book Catalog" },
+    ],
+    repoUrl: "https://github.com/ROCMondriaanTIN/sd24-project-p08-werkplek-leren-reading-gate"
+  },
+  {
     title: "Tower Defense Game",
     description:
       "Full-stack web app built with the Next.js App Router, an interactive canvas game engine, and persistent score and leaderboard tracking in a cloud PostgreSQL database.",
@@ -74,6 +89,20 @@ export const projects: Project[] = [
     repoUrl: "https://github.com/MichaClan/ashura-s-battle-arena",
   },
   {
+    title: "Dashboard Lahmacun",
+    description:
+      "First-year group project dashboard that processes incoming dataset metrics and visualizes trends through interactive charts.",
+    image: "/projects/dashboard-lahmacun.png",
+    imageAlt: "Dashboard Lahmacun analytics project",
+    category: "year-1",
+    badge: "Analytics",
+    details: [
+      { label: "Tech stack", value: "Next.js, Chart.js" },
+      { label: "Focus", value: "Data Visualization & Dashboard UI" },
+    ],
+    repoUrl: "https://github.com/ROCMondriaanTIN/sd24-project-p06-dashboard-lahmacun",
+  },
+  {
     title: "Budget Buddy",
     description:
       "Web app for managing expenses. Built with PHP and MySQL, including CRUD functionality and user login.",
@@ -90,7 +119,7 @@ export const projects: Project[] = [
     title: "Review Your Experience",
     description:
       "Web app built with PHP and MySQL where users can post and store reviews. Backend connected to a database through XAMPP.",
-    image: "/projects/project3.png",
+    image: "/projects/ryx.png",
     imageAlt: "Review Your Experience, a review website for a game site",
     category: "year-1",
     details: [
@@ -117,7 +146,7 @@ export const projects: Project[] = [
     title: "Higher Lower",
     description:
       "Browser game built with JavaScript where players guess whether a number is higher or lower. Focus on logic, conditionals and random values.",
-    image: "/projects/hoger-lager.png",
+    image: "/projects/hl.png",
     imageAlt: "Hoger Lager, a higher or lower card game",
     category: "year-1",
     details: [
